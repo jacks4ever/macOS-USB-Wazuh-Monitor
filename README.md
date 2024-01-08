@@ -109,9 +109,8 @@ sudo systemctl restart wazuh-manager
 
 To test the integration, monitor the `usb_monitor.log` for new entries and check the Wazuh Manager dashboard for alerts corresponding to the USB device events.
 
-```sh
 tail -f /var/log/usb_monitor.log
-```
+
 When a USB device is connected or disconnected, you should see JSON-formatted log entries in the `usb_monitor.log` file and corresponding alerts in the Wazuh Manager. This real-time monitoring allows for quick detection and response to USB device activities on macOS systems.
 
 ## macOS Startup Script
