@@ -37,6 +37,7 @@ chmod +x /path/to/USBMonitor
 chmod 644 /path/to/usb.ids
 touch /var/log/usb_monitor.log
 chmod 640 /var/log/usb_monitor.log
+```
 
 ## Usage
 
@@ -44,6 +45,7 @@ Execute the `USBMonitor` to start monitoring USB events:
 
 ```sh
 /path/to/USBMonitor
+```
 
 The script logs events to `/var/log/usb_monitor.log`. Ensure the path to the `usb.ids` file is correct in the Swift script before executing the monitor.
 
