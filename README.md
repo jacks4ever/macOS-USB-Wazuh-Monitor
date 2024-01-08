@@ -116,7 +116,63 @@ When a USB device is connected or disconnected, you should see JSON-formatted lo
 
 ## macOS Startup Script
 
-To run the `USBMonitor` at startup, use the `com.user.usbmonitor.plist` file provided in the `startup` directory. Follow the instructions there to set up the startup script on your macOS system.
+To ensure the `USBMonitor` script runs automatically at every startup of your macOS machine, follow these steps to create a startup script:
+
+### Creating the Launch Daemon
+
+1. Create a Launch Daemon `.plist` file. This file will instruct macOS to run the `USBMonitor` script at startup.
+
+2. Use the provided `com.user.usbmonitor.plist` file as a template. Here's an example:
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>com.user.usbmonitor</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>/path/to/USBMonitor</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+    </dict>
+    </plist>
+    ```
+
+    Replace `/path/to/USBMonitor` with the actual file path of your `USBMonitor` executable.
+
+### Installing the Launch Daemon
+
+3. Save the `.plist` file to `/Library/LaunchDaemons/com.user.usbmonitor.plist`.
+
+4. Set the correct ownership and permissions for the file:
+
+    ```sh
+    sudo chown root:wheel /Library/LaunchDaemons/com.user.usbmonitor.plist
+    sudo chmod 644 /Library/LaunchDaemons/com.user.usbmonitor.plist
+    ```
+
+### Loading the Daemon
+
+5. Load the daemon to register it with the system:
+
+    ```sh
+    sudo launchctl load /Library/LaunchDaemons/com.user.usbmonitor.plist
+    ```
+
+    Alternatively, you can reboot your system, and the daemon should load automatically.
+
+## Testing the Startup Script
+
+After setting up the launch daemon, reboot your system. Once macOS starts up, check if the `USBMonitor` script is running and logging events as expected:
+
+    ```sh
+    tail -f /var/log/usb_monitor.log
+    ```
+
+You should see log entries corresponding to USB events if any USB devices are connected or disconnected after the reboot.
 
 ## Contributing
 
