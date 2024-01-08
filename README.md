@@ -15,15 +15,6 @@ A Swift script-based tool that monitors and logs USB connection and disconnectio
 
 ## Installation
 
-### Compiling the Swift Script
-
-Update the `/path/to/usb.ids` in the script to the actual location of your `usb.ids` file before compiling.
-
-```sh
-xcode-select --install
-swiftc USBMonitor.swift -o USBMonitor
-```
-
 ### Preparing USB IDs Data
 
 Download the `usb.ids` file from the [Linux USB ID Repository](http://www.linux-usb.org/usb-ids.html) and ensure it is placed in the same directory as the `USBMonitor` executable.
@@ -37,6 +28,25 @@ chmod +x /path/to/USBMonitor
 chmod 644 /path/to/usb.ids
 touch /var/log/usb_monitor.log
 chmod 640 /var/log/usb_monitor.log
+```
+
+### Ensuring UTF-8 Encoding for `usb.ids`
+
+It's important to ensure that the `usb.ids` file is using UTF-8 encoding. Run the following command in the terminal:
+
+```sh
+iconv -f iso-8859-1 -t utf-8 usb.ids > usb-utf8.ids && mv usb-utf8.ids usb.ids
+```
+
+This command converts the encoding of the usb.ids file from ISO-8859-1 to UTF-8 and then replaces the original file with the converted one.
+
+### Compiling the Swift Script
+
+Download the `USBMonitor.swift` file from this repository.  Update the `/path/to/usb.ids` in the script to the actual location of your `usb.ids` file before compiling.
+
+```sh
+xcode-select --install
+swiftc USBMonitor.swift -o USBMonitor
 ```
 
 ## Usage
