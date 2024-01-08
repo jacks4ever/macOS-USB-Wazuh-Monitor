@@ -22,6 +22,7 @@ Update the `/path/to/usb.ids` in the script to the actual location of your `usb.
 ```sh
 xcode-select --install
 swiftc USBMonitor.swift -o USBMonitor
+```
 
 ### Preparing USB IDs Data
 
