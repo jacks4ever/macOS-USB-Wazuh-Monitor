@@ -167,9 +167,7 @@ To ensure the `USBMonitor` script runs automatically at every startup of your ma
 
 After setting up the launch daemon, reboot your system. Once macOS starts up, check if the `USBMonitor` script is running and logging events as expected:
 
-    ```sh
     tail -f /var/log/usb_monitor.log
-    ```
 
 You should see log entries corresponding to USB events if any USB devices are connected or disconnected after the reboot.
 
