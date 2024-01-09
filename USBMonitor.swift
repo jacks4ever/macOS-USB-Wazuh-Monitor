@@ -152,7 +152,7 @@ let runLoopSource = IONotificationPortGetRunLoopSource(notifyPort).takeRetainedV
 CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, CFRunLoopMode.defaultMode)
 
 let scriptPath = URL(fileURLWithPath: #file).deletingLastPathComponent().path
-parseUSBIDs(from: "/Users/rhettsaunders/usb.ids")
+parseUSBIDs(from: "/path/to/usb.ids")
 
 var deviceAddedIter = io_iterator_t()
 var deviceRemovedIter = io_iterator_t()
