@@ -17,7 +17,7 @@ A Swift script-based tool that monitors and logs USB connection and disconnectio
 
 ### Preparing USB IDs Data
 
-Download the `usb.ids` file from the [Linux USB ID Repository](http://www.linux-usb.org/usb-ids.html) and ensure it is placed in the same directory as the `USBMonitor` executable.
+Download the `usb.ids` file from the [USB ID Repository](http://www.linux-usb.org/usb-ids.html) and ensure it is placed in the same directory as the `USBMonitor` executable.
 
 ### Setting Permissions
 
