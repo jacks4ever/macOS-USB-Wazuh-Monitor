@@ -151,8 +151,7 @@ To ensure the `USBMonitor` script runs automatically at every startup of your ma
 5. Load the daemon to register it with the system:
 
     ```sh
-    sudo launchctl bootout system /Library/LaunchDaemons/com.user.usbmonitor.plist
-    sudo launchctl bootstrap system /Library/LaunchDaemons/com.user.usbmonitor.plist
+    sudo launchctl load /Library/LaunchDaemons/com.user.usbmonitor.plist
     ```
 
 ## Testing the Startup Script
